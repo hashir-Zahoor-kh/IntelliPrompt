@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "IntelliPrompt Risk Rules Schema",
+  "type": "object",
+  "properties": {
+    "rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "pattern": {
+            "type": "string"
+          },
+          "risk": {
+            "type": "string",
+            "enum": [
+              "low",
+              "medium",
+              "high",
+              "critical"
+            ]
+          },
+          "message": {
+            "type": "string"
+          },
+          "block": {
+            "type": "boolean"
+          },
+          "require_confirmation": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "pattern",
+          "risk",
+          "message"
+        ]
+      }
+    }
+  },
+  "required": [
+    "rules"
+  ]
+}

@@ -1,0 +1,18 @@
+name: Deployment Plan Test
+description: Test deployment plan generation
+
+tests:
+  - name: Generate Vercel Plan for Vite
+    fixture: vite-react-supabase
+    platform: vercel
+    expected:
+      files:
+        - vercel.json
+        
+  - name: Generate Railway Plan for Flask
+    fixture: flask
+    platform: railway
+    expected:
+      files:
+        - railway.json
+        - Dockerfile

@@ -1,0 +1,57 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "IntelliPrompt Configuration Schema",
+  "type": "object",
+  "properties": {
+    "api": {
+      "type": "object",
+      "properties": {
+        "provider": {
+          "type": "string",
+          "enum": [
+            "openai",
+            "anthropic",
+            "ollama"
+          ]
+        },
+        "model": {
+          "type": "string"
+        },
+        "max_tokens": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100000
+        },
+        "temperature": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 2
+        }
+      },
+      "required": [
+        "provider",
+        "model"
+      ]
+    },
+    "risk": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "auto_approve_low_risk": {
+          "type": "boolean"
+        },
+        "require_confirmation_medium": {
+          "type": "boolean"
+        },
+        "block_critical": {
+          "type": "boolean"
+        }
+      }
+    }
+  },
+  "required": [
+    "api"
+  ]
+}

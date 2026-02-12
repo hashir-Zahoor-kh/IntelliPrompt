@@ -1,0 +1,58 @@
+name: Nightly
+
+on:
+  schedule:
+    - cron: '0 2 * * *'  # 2 AM daily
+  workflow_dispatch:
+
+jobs:
+  e2e-tests:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Java 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          
+      - name: Start services
+        run: docker-compose -f docker-compose.dev.yml up -d
+        
+      - name: Run E2E tests
+        run: ./tests/e2e/runner/run-e2e.sh
+        
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: e2e-results
+          path: tests/e2e/results/
+          
+  performance:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - uses: graalvm/setup-graalvm@v1
+        with:
+          java-version: '21'
+          distribution: 'graalvm'
+          
+      - name: Build native image
+        run: ./scripts/native-image.sh
+        
+      - name: Run startup benchmark
+        run: ./tests/perf/startup-benchmark.sh
+        
+      - name: Run TUI latency benchmark
+        run: ./tests/perf/tui-latency-benchmark.sh
+        
+      - name: Upload results
+        uses: actions/upload-artifact@v3
+        with:
+          name: perf-results
+          path: tests/perf/results/

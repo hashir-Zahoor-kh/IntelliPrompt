@@ -1,0 +1,21 @@
+name: Risk Engine Test
+description: Test risk detection and classification
+
+tests:
+  - name: Detect Critical Risk
+    command: "rm -rf /"
+    expected:
+      risk: critical
+      blocked: true
+      
+  - name: Detect High Risk
+    command: "sudo rm file"
+    expected:
+      risk: high
+      confirmation_required: true
+      
+  - name: Detect Medium Risk
+    command: "git push --force"
+    expected:
+      risk: medium
+      confirmation_required: true

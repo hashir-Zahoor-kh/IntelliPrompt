@@ -1,0 +1,9 @@
+[
+  {
+    "name": "com.intelliprompt.core.config.ConfigManager",
+    "allDeclaredConstructors": true,
+    "allPublicConstructors": true,
+    "allDeclaredMethods": true,
+    "allPublicMethods": true
+  }
+]

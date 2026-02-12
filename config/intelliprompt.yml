@@ -1,0 +1,34 @@
+# IntelliPrompt Configuration
+
+server:
+  host: localhost
+  port: 8080
+  max_connections: 1000
+
+api:
+  provider: openai
+  model: gpt-4
+  max_tokens: 4096
+  temperature: 0.7
+  timeout_seconds: 30
+
+risk:
+  enabled: true
+  auto_approve_low: true
+  confirm_medium: true
+  block_critical: false
+
+context:
+  max_files: 1000
+  max_file_size_kb: 500
+  include_patterns:
+    - "*.java"
+    - "*.kt"
+    - "*.md"
+  exclude_patterns:
+    - "node_modules/**"
+    - "build/**"
+
+deploy:
+  default_platform: vercel
+  auto_detect: true

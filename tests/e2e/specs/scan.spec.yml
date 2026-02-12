@@ -1,0 +1,15 @@
+name: Scan Test
+description: Test project scanning functionality
+
+tests:
+  - name: Detect React Vite Project
+    fixture: vite-react-supabase
+    expected:
+      framework: vite
+      language: javascript
+      
+  - name: Detect Flask Project
+    fixture: flask
+    expected:
+      framework: flask
+      language: python

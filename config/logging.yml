@@ -1,0 +1,19 @@
+logging:
+  level: INFO
+  pattern: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  
+  appenders:
+    console:
+      enabled: true
+      target: STDOUT
+      
+    file:
+      enabled: true
+      path: logs/intelliprompt.log
+      max_size: 50MB
+      max_backups: 10
+      
+  loggers:
+    com.intelliprompt: DEBUG
+    org.springframework: INFO
+    io.grpc: WARN

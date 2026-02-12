@@ -1,0 +1,84 @@
+[versions]
+java = "21"
+graalvm = "24.0.0"
+
+# Frameworks
+spring-boot = "3.2.2"
+micronaut = "4.2.3"
+
+# Libraries
+picocli = "4.7.5"
+lanterna = "3.1.2"
+pty4j = "0.12.13"
+jackson = "2.16.1"
+slf4j = "2.0.11"
+logback = "1.4.14"
+okhttp = "4.12.0"
+reactor = "3.6.2"
+
+# Testing
+junit = "5.10.1"
+mockito = "5.10.0"
+testcontainers = "1.19.3"
+assertj = "3.25.1"
+
+# Build Tools
+spotless = "6.25.0"
+graalvm-buildtools = "0.10.0"
+shadow = "8.1.1"
+
+[libraries]
+# CLI
+picocli = { module = "info.picocli:picocli", version.ref = "picocli" }
+picocli-codegen = { module = "info.picocli:picocli-codegen", version.ref = "picocli" }
+
+# TUI
+lanterna = { module = "com.googlecode.lanterna:lanterna", version.ref = "lanterna" }
+
+# PTY
+pty4j = { module = "org.jetbrains.pty4j:pty4j", version.ref = "pty4j" }
+pty4j-native = { module = "org.jetbrains.pty4j:purejavacomm", version.ref = "pty4j" }
+
+# Spring Boot
+spring-boot-starter-web = { module = "org.springframework.boot:spring-boot-starter-web", version.ref = "spring-boot" }
+spring-boot-starter-data-jpa = { module = "org.springframework.boot:spring-boot-starter-data-jpa", version.ref = "spring-boot" }
+spring-boot-starter-security = { module = "org.springframework.boot:spring-boot-starter-security", version.ref = "spring-boot" }
+spring-boot-starter-actuator = { module = "org.springframework.boot:spring-boot-starter-actuator", version.ref = "spring-boot" }
+
+# JSON
+jackson-core = { module = "com.fasterxml.jackson.core:jackson-core", version.ref = "jackson" }
+jackson-databind = { module = "com.fasterxml.jackson.core:jackson-databind", version.ref = "jackson" }
+jackson-yaml = { module = "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml", version.ref = "jackson" }
+
+# Logging
+slf4j-api = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
+logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
+
+# HTTP Client
+okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
+okhttp-sse = { module = "com.squareup.okhttp3:okhttp-sse", version.ref = "okhttp" }
+
+# Reactive
+reactor-core = { module = "io.projectreactor:reactor-core", version.ref = "reactor" }
+
+# Testing
+junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit" }
+junit-jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit" }
+junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit" }
+mockito-core = { module = "org.mockito:mockito-core", version.ref = "mockito" }
+mockito-junit = { module = "org.mockito:mockito-junit-jupiter", version.ref = "mockito" }
+testcontainers = { module = "org.testcontainers:testcontainers", version.ref = "testcontainers" }
+testcontainers-junit = { module = "org.testcontainers:junit-jupiter", version.ref = "testcontainers" }
+assertj-core = { module = "org.assertj:assertj-core", version.ref = "assertj" }
+
+[bundles]
+jackson = ["jackson-core", "jackson-databind", "jackson-yaml"]
+logging = ["slf4j-api", "logback-classic"]
+okhttp = ["okhttp", "okhttp-sse"]
+testing = ["junit-jupiter-api", "junit-jupiter-engine", "mockito-core", "mockito-junit", "assertj-core"]
+
+[plugins]
+spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }
+graalvm-native = { id = "org.graalvm.buildtools.native", version.ref = "graalvm-buildtools" }
+spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
+shadow = { id = "com.github.johnrengelman.shadow", version.ref = "shadow" }

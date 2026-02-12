@@ -1,0 +1,68 @@
+# IntelliPrompt Configuration Example
+
+# API Settings
+api:
+  provider: openai  # openai, anthropic, ollama
+  model: gpt-4
+  max_tokens: 2048
+  temperature: 0.7
+  
+# Risk Engine
+risk:
+  enabled: true
+  auto_approve_low_risk: true
+  require_confirmation_medium: true
+  block_critical: false
+  
+  rules:
+    - pattern: "rm -rf /"
+      risk: critical
+      message: "This will delete your entire filesystem!"
+      
+    - pattern: "sudo .*"
+      risk: high
+      message: "Running with elevated privileges"
+      
+    - pattern: "git push --force"
+      risk: medium
+      message: "Force push can cause data loss"
+
+# Context Settings
+context:
+  max_files: 1000
+  max_file_size_kb: 500
+  include_patterns:
+    - "*.java"
+    - "*.md"
+    - "*.yml"
+  exclude_patterns:
+    - "node_modules/**"
+    - "*.log"
+    - "build/**"
+
+# Deployment
+deploy:
+  default_platform: vercel
+  auto_detect: true
+  platforms:
+    vercel:
+      enabled: true
+      auto_install_cli: true
+    railway:
+      enabled: true
+    aws:
+      enabled: false
+      region: us-east-1
+
+# Logging
+logging:
+  level: info  # debug, info, warn, error
+  file: ~/.intelliprompt/logs/session.log
+  max_size_mb: 50
+  max_backups: 5
+  
+# Security
+security:
+  mask_secrets: true
+  keychain_integration: true
+  telemetry: false

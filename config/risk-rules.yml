@@ -1,0 +1,30 @@
+rules:
+  - id: rm-rf-root
+    pattern: "^rm\\s+-rf\\s+/$"
+    risk: critical
+    message: "This will delete your entire filesystem!"
+    block: true
+    
+  - id: sudo-command
+    pattern: "^sudo\\s+"
+    risk: high
+    message: "Running with elevated privileges"
+    require_confirmation: true
+    
+  - id: force-push
+    pattern: "git\\s+push\\s+.*--force"
+    risk: medium
+    message: "Force push can cause data loss"
+    require_confirmation: true
+    
+  - id: drop-database
+    pattern: "DROP\\s+(DATABASE|TABLE)"
+    risk: critical
+    message: "Destructive database operation"
+    block: true
+    
+  - id: chmod-777
+    pattern: "chmod\\s+777"
+    risk: medium
+    message: "Overly permissive file permissions"
+    require_confirmation: true

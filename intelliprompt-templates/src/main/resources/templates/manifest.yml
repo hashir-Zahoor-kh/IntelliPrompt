@@ -1,0 +1,19 @@
+# Template Manifest
+version: 1.0.0
+templates:
+  docker:
+    - node
+    - python
+    - java
+    - dotnet
+  terraform:
+    - aws-ecs
+    - gcp-cloudrun
+    - azure-containerapps
+  k8s:
+    - base
+    - overlays
+  platforms:
+    - vercel
+    - railway
+    - render

@@ -1,0 +1,75 @@
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Eclipse
+.classpath
+.project
+.settings/
+bin/
+
+# VS Code
+.vscode/
+!.vscode/tasks.json
+
+# macOS
+.DS_Store
+
+# Environment
+.env
+*.env
+!.env.example
+
+# Logs
+logs/
+*.log
+
+# Native build
+*.so
+*.dylib
+*.dll
+
+# Package Files
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# GraalVM
+graalvm_cache/
+*.h
+*.o
+
+# Distribution
+dist/
+*.exe
+*.deb
+*.rpm
+*.dmg
+
+# Secrets
+secrets/
+*.key
+*.pem
+*.crt
+
+# Temporary
+tmp/
+temp/
+*.tmp
+*.bak
+*.swp
+*~
