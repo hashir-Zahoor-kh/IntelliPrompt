@@ -7,7 +7,7 @@ spring-boot = "3.2.2"
 micronaut = "4.2.3"
 
 # Libraries
-picocli = "4.7.5"
+picocli = "4.7.7"
 lanterna = "3.1.2"
 pty4j = "0.12.13"
 jackson = "2.16.1"
