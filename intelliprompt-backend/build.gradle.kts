@@ -13,7 +13,7 @@ dependencies {
     implementation(libs.spring.boot.starter.actuator)
     implementation(libs.bundles.jackson)
     
-    runtimeOnly("org.postgresql:postgresql:42.7.1")
+    runtimeOnly("org.postgresql:postgresql:42.7.10")
     
     testImplementation(libs.bundles.testing)
     testImplementation("org.springframework.boot:spring-boot-starter-test")
