@@ -3,7 +3,7 @@ java = "21"
 graalvm = "24.0.0"
 
 # Frameworks
-spring-boot = "3.2.2"
+spring-boot = "4.0.2"
 micronaut = "4.2.3"
 
 # Libraries
